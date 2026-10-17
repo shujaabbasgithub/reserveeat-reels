@@ -1,0 +1,112 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:I;src:url(fonts/inter-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:I;src:url(fonts/inter-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:I;src:url(fonts/inter-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:I;src:url(fonts/inter-latin-900-normal.woff2);font-weight:900}
+@font-face{font-family:M;src:url(fonts/jbmono-500.woff2)}
+:root{--g:#C2995B;--bg:#F5F2EE;--ink:#141414}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;overflow:hidden;font-family:I;background:#0A0A0A;position:relative}
+#light{position:absolute;inset:0;background:var(--bg)}
+.hud{position:absolute;inset:0}
+.c{position:absolute;width:56px;height:56px;border:3px solid #c9c4bc}
+.c.tl{left:120px;top:300px;border-right:0;border-bottom:0}.c.tr{right:120px;top:300px;border-left:0;border-bottom:0}
+.c.bl{left:120px;top:1400px;border-right:0;border-top:0}.c.br{right:120px;top:1400px;border-left:0;border-top:0}
+.rec{position:absolute;left:130px;top:262px;font:500 24px M;color:#6b6b6b;letter-spacing:.06em}
+.rec i{display:inline-block;width:14px;height:14px;border-radius:50%;background:#E5484D;margin-right:10px;vertical-align:1px}
+.fps{position:absolute;right:130px;top:262px;font:500 24px M;color:#6b6b6b;letter-spacing:.06em}
+.top{position:absolute;left:0;right:0;top:400px;text-align:center;font:700 40px I;color:#2a2a2a;letter-spacing:-.01em}
+.stage{position:absolute;left:540px;top:860px;width:0;height:0}
+.card{position:absolute;left:-230px;top:-300px;width:460px;background:#fff;border-radius:30px;box-shadow:0 40px 80px -30px rgba(0,0,0,.35);padding:22px;overflow:hidden}
+.img{height:300px;border-radius:20px;background:linear-gradient(140deg,#ECE6DC,#D7CBB7);position:relative}
+.img::after{content:"";position:absolute;left:50%;top:50%;width:170px;height:170px;margin:-85px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#C2995B 60%,#7d5f30)}
+.nm{font:800 32px I;color:var(--ink);margin-top:18px}
+.pr{font:600 26px I;color:#555;margin-top:4px}
+.atc{margin-top:20px;height:78px;border-radius:18px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font:800 28px I}
+.skel{position:absolute;inset:0;background:#fff;padding:22px;opacity:0}
+.skel i{display:block;border-radius:14px;background:#ECE8E1;margin-bottom:16px}
+.spin{position:absolute;left:50%;top:150px;width:70px;height:70px;margin-left:-35px;border:7px solid #e6e1d9;border-top-color:var(--ink);border-radius:50%}
+.ltxt{position:absolute;left:0;right:0;top:520px;text-align:center;font:600 24px M;color:#888}
+.cursor{position:absolute;left:-500px;top:150px;width:64px;height:64px}
+.lab{position:absolute;left:0;right:0;top:1190px;text-align:center}
+.lab small{display:block;font:500 22px M;letter-spacing:.2em;color:#8d8d8d}
+.lab b{display:block;font:500 120px I;color:var(--ink);letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
+.tw{position:absolute;left:120px;right:120px;top:1210px;text-align:center;opacity:0}
+.tw small{display:block;font:500 34px I;color:#8d8d8d}
+.tw b{display:block;font:500 72px I;color:var(--ink);margin-top:8px;letter-spacing:-.02em}
+.tw b strong{font-weight:800}
+/* dark */
+#dark{position:absolute;inset:0;opacity:0}
+.glow{position:absolute;left:50%;top:46%;width:1500px;height:1500px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(194,153,91,.42) 0%,rgba(194,153,91,.12) 35%,transparent 65%)}
+.sc{position:absolute;left:120px;right:120px;top:260px;bottom:440px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;opacity:0}
+.big{font:900 112px/1.02 I;letter-spacing:-.03em}
+.gt{background:linear-gradient(90deg,#fff 30%,var(--g));-webkit-background-clip:text;background-clip:text;color:transparent}
+.w3{display:grid;gap:26px}
+.w3 div{font:900 120px/1 I;letter-spacing:-.03em}
+.endline{width:640px;height:2px;background:linear-gradient(90deg,transparent,#C2995B,transparent);transform:scaleX(0)}
+.endlogo{width:520px;margin:44px 0 40px}
+.endh{font:800 70px/1.08 I;letter-spacing:-.02em}
+.endpill{margin-top:44px;display:inline-flex;border:2px solid #C2995B;border-radius:999px;padding:22px 40px;font:800 36px I;color:#C2995B}
+.endurl{font:600 30px M;color:#9a9aa0;margin-top:34px;letter-spacing:.06em}
+</style></head><body>
+<div id="light" data-bleed>
+  <div class="hud"><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+    <div class="rec" id="rec"><i></i>REC 00:00:00:00</div><div class="fps">240 FPS</div></div>
+  <div class="top" id="top">Don't scroll. Watch the cursor.</div>
+  <div class="stage" id="stage">
+    <div class="card ui"><div class="img"></div><div class="nm">Linen Overshirt</div><div class="pr">$68.00</div><div class="atc">Add to cart</div>
+      <div class="skel" id="skel"><i style="height:300px"></i><i style="height:34px;width:70%"></i><i style="height:26px;width:35%"></i><i style="height:78px"></i><div class="spin" id="spin"></div><div class="ltxt">loading...</div></div>
+    </div>
+    <svg class="cursor ui" id="cur" viewBox="0 0 24 24"><path d="M4 2l15 11-6.5 1.2 3.8 7.3-2.6 1.3-3.8-7.3L5 20z" fill="#141414" stroke="#fff" stroke-width="1.2"/></svg>
+  </div>
+  <div class="lab" id="lab"><small>MS TO CLICK</small><b id="ms">7200</b></div>
+  <div class="tw" id="tw"><small>You just watched a cursor</small><b>for <strong>7 seconds.</strong></b></div>
+</div>
+<div id="dark" data-bleed><div class="glow"></div></div>
+<section class="sc" id="s2"><div class="big">Your shoppers<br>won't give<br>your store <span class="gt">three.</span></div></section>
+<section class="sc" id="s3"><div class="big" style="font-size:96px">Slow pages lose them<br><span class="gt">before they see<br>what you sell.</span></div></section>
+<section class="sc" id="s4"><div class="w3"><div id="a1">Speed.</div><div id="a2">Clarity.</div><div id="a3" class="gt">One obvious<br>button.</div></div></section>
+<section class="sc" id="sH">
+  <div class="endline" id="l1"></div><img class="endlogo" id="elogo" src="logo_c.png">
+  <div class="endh gt" id="eh">That's what we build.</div><div class="endpill" id="ep">DM "SPEED" for a free check</div>
+  <div class="endurl" id="eu">nexaeagle.com</div><div class="endline" id="l2" style="margin-top:44px"></div>
+</section>
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<script>
+const tl=gsap.timeline({paused:true});
+const ms=document.getElementById('ms'),rec=document.getElementById('rec');
+const o={v:7200};
+tl.to(o,{v:80,duration:7.2,ease:'power1.out',onUpdate:()=>{const v=Math.round(o.v);ms.textContent=String(v).padStart(4,'0');ms.style.color=v<1500?'#C93C40':'#141414';}},0);
+const r={t:0};tl.to(r,{t:25,duration:25,ease:'none',onUpdate:()=>{const s=Math.floor(r.t),f=Math.floor((r.t%1)*30);rec.lastChild.textContent='REC 00:00:'+String(s).padStart(2,'0')+':'+String(f).padStart(2,'0')}},0);
+tl.fromTo('#cur',{x:90,y:0},{x:250,y:-6,duration:7.2,ease:'sine.out'},0);
+tl.fromTo('#stage',{scale:1},{scale:1.1,duration:7.2,ease:'power1.in'},0);
+tl.to('#top',{opacity:0,duration:.3},6.9);
+tl.to('#lab',{opacity:0,duration:.15},7.2);
+tl.fromTo('#tw',{opacity:0,y:20},{opacity:1,y:0,duration:.35,immediateRender:false},7.25);
+// page "never loads": skeleton + spinner, cursor drifts away
+tl.to('#tw',{opacity:0,duration:.2},9.6);
+tl.fromTo('#skel',{opacity:0},{opacity:1,duration:.25,immediateRender:false},9.5);
+tl.to('#spin',{rotate:720,duration:2,ease:'none'},9.5);
+tl.to('#cur',{x:-520,y:120,opacity:0,duration:.9,ease:'power2.in'},10.1);
+// to dark
+tl.fromTo('#dark',{opacity:0},{opacity:1,duration:.25,immediateRender:false},9.85);
+tl.to('#light',{opacity:0,duration:.25},9.85);
+tl.fromTo('#s2',{opacity:0,scale:1.15},{opacity:1,scale:1,duration:.35,ease:'power3.out',immediateRender:false},9.9);
+tl.to('#s2',{opacity:0,duration:.15},12.05);
+tl.fromTo('#s3',{opacity:0,y:60},{opacity:1,y:0,duration:.35,ease:'power3.out',immediateRender:false},12.15);
+tl.to('#s3',{opacity:0,duration:.15},16.25);
+tl.fromTo('#s4',{opacity:0},{opacity:1,duration:.1,immediateRender:false},16.35);
+[['#a1',16.4],['#a2',17.1],['#a3',17.8]].forEach(([s,t])=>tl.fromTo(s,{opacity:0,scale:1.4},{opacity:1,scale:1,duration:.3,ease:'back.out(2)',immediateRender:false},t));
+tl.to('#s4',{opacity:0,duration:.15},19.2);
+tl.fromTo('#sH',{opacity:0},{opacity:1,duration:.1,immediateRender:false},19.3);
+tl.fromTo('#l1,#l2',{scaleX:0},{scaleX:1,duration:.7,ease:'power3.inOut',immediateRender:false},19.35);
+tl.fromTo('#elogo',{opacity:0,y:30,filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:.7,ease:'power3.out',immediateRender:false},19.6);
+tl.fromTo('#eh,#ep,#eu',{opacity:0,y:30},{opacity:1,y:0,stagger:.25,duration:.5,ease:'power3.out',immediateRender:false},20.0);
+// loop back to the opening frame
+tl.to('#sH',{opacity:0,duration:.3},23.6);
+tl.to('#dark',{opacity:0,duration:.4},23.7);
+tl.set('#skel',{opacity:0},23.7);tl.set('#tw',{opacity:0},23.7);tl.set(['#lab','#top'],{opacity:1},23.7);tl.set('#cur',{x:90,y:0,opacity:1},23.7);tl.set('#stage',{scale:1},23.7);
+tl.fromTo('#light',{opacity:0},{opacity:1,duration:.4,immediateRender:false},23.7);
+tl.add(()=>{},25);
+window.seek=t=>{tl.seek(t,false);if(t>=23.7){ms.textContent='7200';ms.style.color='#141414';}};seek(0);
+</script></body></html>
