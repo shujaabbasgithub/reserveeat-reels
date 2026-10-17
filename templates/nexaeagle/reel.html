@@ -64,12 +64,25 @@ body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;font-family
 .foot .s{font:600 26px M;letter-spacing:.22em;color:var(--z)}
 .foot .u{font:800 46px I;color:var(--g);margin-top:14px}
 .logo{position:absolute;left:50%;top:300px;transform:translateX(-50%);width:330px;opacity:0}
+.chart{width:760px;margin-top:60px;background:rgba(255,255,255,.03);border:1.5px solid #26262a;border-radius:28px;padding:26px 30px 22px}
+.chart svg{width:100%;height:220px;display:block;margin-top:14px}
+.ch-h{display:flex;gap:30px;font:600 26px I;color:#cfcfd3}.ch-h i{display:inline-block;width:16px;height:16px;border-radius:50%;margin-right:10px}
+.ch-n{font:500 22px M;color:#8b8b90;margin-top:10px;letter-spacing:.04em}
+.endline{width:640px;height:2px;background:linear-gradient(90deg,transparent,#C2995B,transparent);transform:scaleX(0)}
+.endlogo{width:520px;margin:44px 0 40px}
+.endh{font:800 70px/1.08 I;letter-spacing:-.02em}
+.endpill{margin-top:44px;display:inline-flex;gap:14px;align-items:center;border:2px solid #C2995B;border-radius:999px;padding:22px 40px;font:800 36px I;color:#C2995B}
+.endurl{font:600 30px M;color:#9a9aa0;margin-top:34px;letter-spacing:.06em}
 </style></head><body>
 <div class="glow" data-bleed></div><div class="grid" data-bleed></div><div class="flash" data-bleed></div>
 
 <!-- A hook -->
 <section class="sc" id="sA" style="opacity:1">
-  <div class="big"><span class="w">Your</span> <span class="w">ads</span><br><span class="w">aren't</span> <span class="w">the</span><br><span class="w gt">problem.</span></div>
+  <div class="tag" style="margin-bottom:40px">Shopify brand owners</div>
+  <div class="big" style="font-size:132px"><span class="w">Your</span> <span class="w">ads</span><br><span class="w">aren't</span> <span class="w">the</span><br><span class="w gt">problem.</span></div>
+  <div class="chart ui"><div class="ch-h"><span><i style="background:#C2995B"></i>Ad spend</span><span><i style="background:#E5484D"></i>Sales</span></div>
+    <svg viewBox="0 0 700 260" preserveAspectRatio="none"><path d="M0 230 C120 215 200 190 290 160 S470 80 700 20" stroke="#C2995B" stroke-width="7" fill="none" stroke-linecap="round"/><path id="flat" d="M0 214 C150 212 300 216 420 213 S600 215 700 214" stroke="#E5484D" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="6 0"/></svg>
+    <div class="ch-n">Spend goes up. Sales stay flat.</div></div>
 </section>
 
 <!-- B slot -->
@@ -125,13 +138,14 @@ body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;font-family
 </section>
 
 <!-- H end card -->
-<img class="logo" id="logo" src="logo_c.png">
 <section class="sc" id="sH">
-  <div class="endtxt"><div id="e1" class="gt">Free PDP<br>audit?</div><div id="e2" class="gold" style="opacity:0">Let's<br>talk.</div></div>
+  <div class="endline" id="l1"></div>
+  <img class="endlogo" id="elogo" src="logo_c.png">
+  <div class="endh gt" id="eh">Free product page audit</div>
+  <div class="endpill" id="ep">DM "PDP" to start</div>
+  <div class="endurl" id="eu">nexaeagle.com</div>
+  <div class="endline" id="l2" style="margin-top:44px"></div>
 </section>
-<div class="pend" id="pend" style="opacity:0"><div class="arm" id="arm"><div class="bob ui"><img src="mark.png"></div></div></div>
-<div class="foot" id="foot"><div class="s">SHOPIFY · CRO · WEB DEVELOPMENT</div><div class="u">nexaeagle.com</div></div>
-
 <script src="node_modules/gsap/dist/gsap.min.js"></script>
 <script>
 const tl=gsap.timeline({paused:true});
@@ -141,7 +155,7 @@ const flash=t=>tl.fromTo('.flash',{opacity:0},{opacity:.35,duration:.05,immediat
 // glow breathing
 tl.fromTo('.glow',{scale:1},{scale:1.12,duration:2,yoyo:true,repeat:13,ease:'sine.inOut'},0);
 // A: words already visible at 0, punch in staggered scale
-tl.fromTo('#sA .w',{y:-26,opacity:1},{y:0,duration:.3,stagger:.12,ease:'back.out(3)'},0);tl.fromTo('#sA .gt',{scale:1},{scale:1.08,duration:.25,yoyo:true,repeat:1},0.9);
+tl.fromTo('#sA .w',{y:-20,opacity:1},{y:0,duration:.28,stagger:.1,ease:'back.out(3)'},0);tl.fromTo('#sA .chart',{y:40},{y:0,duration:.5,ease:'power3.out'},0);tl.fromTo('#flat',{x:0},{x:0,duration:.1},0);tl.fromTo('#sA',{scale:1},{scale:1.05,duration:1.9,ease:'none'},0);tl.fromTo('#sA .gt',{scale:1},{scale:1.08,duration:.25,yoyo:true,repeat:1},0.9);
 hide('#sA',1.95); flash(1.97);
 // B slot
 show('#sB',2.0);
@@ -181,11 +195,16 @@ hide('#sF',20.0); flash(20.02);
 show('#sG',20.1);
 tl.fromTo('#sG .w',{y:80,opacity:0},{y:0,opacity:1,stagger:.12,duration:.3,ease:'power3.out',immediateRender:false},20.1);
 hide('#sG',22.6); flash(22.62);
-// H pendulum end card (loops back toward the hook)
-show('#sH',22.7);show('#pend',22.7);show('#logo',22.7);show('#foot',23.0);
-tl.fromTo('#arm',{rotate:32},{rotate:-32,duration:1.1,ease:'sine.inOut',yoyo:true,repeat:4,immediateRender:false},22.7);
-// text swaps as the bob passes centre
-[23.25,24.35,25.45,26.55].forEach((t,i)=>{tl.set('#e1',{opacity:i%2?1:0},t);tl.set('#e2',{opacity:i%2?0:1},t);});
+// H classy end card
+show('#sH',22.7);
+tl.fromTo('#l1,#l2',{scaleX:0},{scaleX:1,duration:.7,ease:'power3.inOut',immediateRender:false},22.75);
+tl.fromTo('#elogo',{opacity:0,y:30,filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:.7,ease:'power3.out',immediateRender:false},23.0);
+tl.fromTo('#eh,#ep,#eu',{opacity:0,y:30},{opacity:1,y:0,stagger:.25,duration:.5,ease:'power3.out',immediateRender:false},23.5);
+tl.to('#ep',{boxShadow:'0 0 50px rgba(194,153,91,.45)',duration:.6,yoyo:true,repeat:3},24.6);
+// loop: fade out, hook comes back exactly as frame 0
+hide('#sH',26.7);
+tl.fromTo('#sA',{opacity:0,scale:1.04},{opacity:1,scale:1,duration:.5,ease:'power2.out',immediateRender:false},27.1);
+tl.set('#sA .w',{y:0},27.1);
 tl.to({},{duration:.01},28.0);
 window.seek=t=>{tl.seek(t,false)};
 seek(0);
