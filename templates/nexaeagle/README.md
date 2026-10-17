@@ -1,0 +1,5 @@
+# NexaEagle content kit (Instagram @nexaeagle + LinkedIn company page)
+Brand: dark #0A0A0A / zinc, gold #C2995B (light gold #E3C38E, dark gold for text on light #8E6A2F), white-to-gold gradient text. Fonts: Inter 500/700/800/900 + JetBrains Mono (fonts/). Logo: logo_c.png (gold wordmark with eagle N), mark.png (eagle N only).
+Reels: dark black with breathing gold radial glow + faint grid; centered content in safe box x120-960 y260-1480. Examples: reel.html (product page), reel2.html (checkout). Classy end card: gold lines draw, logo de-blurs, offer line, outlined gold pill CTA, url; then fade back to the hook frame for a seamless loop.
+Feed (carousel/single): bone #F4F1EC with faint grid, black type Inter 900, gold highlight underline, dotted gold thread across carousel slides, last slide dark CTA. Examples: carousel.html, single.html.
+Scripts: render.js (video|stills|check), tts.py (python3 -I tts.py lines.json <voice> <speed>), beat.py (python3 -I beat.py <seconds> -> beat.wav), mux.py (voice), then mix beat at -19 dB with ffmpeg.
