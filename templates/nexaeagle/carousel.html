@@ -1,0 +1,170 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:I;src:url(fonts/inter-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:I;src:url(fonts/inter-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:I;src:url(fonts/inter-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:I;src:url(fonts/inter-latin-900-normal.woff2);font-weight:900}
+@font-face{font-family:M;src:url(fonts/jbmono-500.woff2)}
+:root{--bg:#F4F1EC;--ink:#0A0A0A;--g:#C2995B;--gd:#8E6A2F;--mut:#55555B;--line:#E2DCD1}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:7560px;height:1350px;background:var(--bg);font-family:I;color:var(--ink);position:relative;overflow:hidden}
+body::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(10,10,10,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(10,10,10,.045) 1px,transparent 1px);background-size:60px 60px}
+.s{position:absolute;top:0;width:1080px;height:1350px;padding:170px 96px 120px;display:flex;flex-direction:column}
+.top{position:absolute;top:70px;left:96px;right:96px;display:flex;justify-content:space-between;align-items:center}
+.top img{height:38px}
+.top span{font:500 22px M;letter-spacing:.12em;color:var(--mut)}
+.k{font:500 24px M;letter-spacing:.2em;color:var(--gd);text-transform:uppercase}
+h1,h2{font-weight:900;letter-spacing:-.035em;line-height:.98}
+h1{font-size:124px}
+h2{font-size:86px;margin-top:22px}
+.u{position:relative;white-space:nowrap}
+.u::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:16px;background:var(--g);opacity:.45;z-index:-1}
+p.l{font:500 36px/1.45 I;color:var(--mut);margin-top:30px;max-width:860px}
+.src{font:500 21px M;color:#8a8a8f;margin-top:auto;padding-top:30px}
+.pill{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:#fff;border-radius:999px;padding:24px 38px;font:800 32px I}
+.thread{position:absolute;left:0;top:1235px;width:7560px;height:4px;background:repeating-linear-gradient(90deg,var(--g) 0 18px,transparent 18px 30px);opacity:.8}
+.dot{position:absolute;top:1227px;width:20px;height:20px;border-radius:50%;background:var(--g)}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:30px;box-shadow:0 30px 60px -36px rgba(10,10,10,.35)}
+/* s1 */
+.mini{position:absolute;right:96px;bottom:200px;width:380px;padding:20px}
+.mini .img{height:210px;border-radius:20px;background:linear-gradient(140deg,#E9E2D6,#D2C3A9);position:relative}
+.mini .img::after{content:"";position:absolute;left:50%;top:50%;width:130px;height:130px;margin:-65px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--g) 60%,#7d5f30)}
+.mini b{display:block;font:800 28px I;margin-top:16px}
+.mini .btn{margin-top:14px;height:58px;border-radius:14px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font:800 22px I}
+.miss{position:absolute;right:70px;bottom:520px;background:#E5484D;color:#fff;font:800 22px I;padding:12px 20px;border-radius:999px;transform:rotate(-6deg)}
+/* big stat */
+.stat{font:900 300px/0.9 I;letter-spacing:-.06em;margin-top:40px;background:linear-gradient(90deg,var(--ink) 40%,var(--g));-webkit-background-clip:text;background-clip:text;color:transparent}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.gal div{aspect-ratio:1;border-radius:20px;background:linear-gradient(140deg,#EAE3D7,#D5C7AE);position:relative;overflow:hidden}
+.gal div span{position:absolute;left:12px;bottom:10px;font:700 18px I;color:#3b3b3f}
+.gal div::after{content:"";position:absolute;left:50%;top:44%;width:44%;height:44%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--g) 60%,#7d5f30)}
+.gal div:nth-child(2)::after{width:80%;height:80%}
+.gal div:nth-child(3)::after{border-radius:30%;transform:translate(-50%,-50%) rotate(20deg)}
+.list{margin-top:40px;display:grid;gap:18px}
+.list div{display:flex;gap:18px;align-items:center;font:700 32px I}
+.list div i{flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--g);display:flex;align-items:center;justify-content:center;font:800 22px I;font-style:normal}
+/* speed */
+.bars{margin-top:50px;display:grid;gap:26px}
+.brow{display:grid;grid-template-columns:200px 1fr;align-items:center;gap:20px;font:700 28px I}
+.brow .tr{height:56px;border-radius:14px;background:#E7E1D6;overflow:hidden}
+.brow .tr i{display:block;height:100%;border-radius:14px}
+/* pdp mock */
+.pdp{display:grid;grid-template-columns:420px 1fr;gap:34px;margin-top:46px;padding:30px}
+.pdp .img{border-radius:22px;background:linear-gradient(140deg,#E9E2D6,#D2C3A9);height:440px;position:relative}
+.pdp .img::after{content:"";position:absolute;left:50%;top:50%;width:200px;height:200px;margin:-100px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--g) 60%,#7d5f30)}
+.pdp h3{font:800 34px I}
+.pr{font:900 46px I;margin-top:10px}
+.ln{margin-top:16px;font:600 22px I;color:#2f2f33;display:flex;gap:10px;align-items:center}
+.ln em{font-style:normal;width:28px;height:28px;border-radius:50%;background:#1f7a4a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
+.atc{margin-top:22px;height:70px;border-radius:16px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font:800 25px I;position:relative}
+.callout{position:absolute;font:800 22px I;color:var(--gd);display:flex;align-items:center;gap:10px}
+/* sticky mobile */
+.phones{display:flex;gap:40px;margin-top:110px;justify-content:center}
+.ph{width:330px;height:640px;border-radius:46px;background:#111;padding:12px;position:relative}
+.ph .sc{width:100%;height:100%;border-radius:36px;background:#fff;overflow:hidden;position:relative}
+.ph .sc .im{height:300px;background:linear-gradient(140deg,#E9E2D6,#D2C3A9)}
+.ph .sc .tx{margin:16px;height:16px;border-radius:8px;background:#E6E0D5}
+.ph .sc .tx.s{width:60%}
+.ph .sc .btn{position:absolute;left:14px;right:14px;bottom:16px;height:60px;border-radius:14px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font:800 20px I}
+.ph .lab{position:absolute;top:-56px;left:0;right:0;text-align:center;font:800 24px I}
+/* dark CTA */
+.dark{background:#0A0A0A;color:#fff}
+.dark::before{content:"";position:absolute;left:50%;top:45%;width:1200px;height:1200px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(194,153,91,.35),transparent 62%)}
+.dark>*{position:relative}.dark>.top{position:absolute}
+.dark .top span{color:#8f8f95}
+.dark h2{font-size:104px}
+.gt{background:linear-gradient(90deg,#fff 30%,var(--g));-webkit-background-clip:text;background-clip:text;color:transparent}
+.dark p.l{color:#B9B9BE}
+.dark .pill{background:var(--g);color:#0A0A0A;font-size:36px;padding:28px 46px}
+.chk{margin-top:44px;display:grid;gap:16px;font:700 30px I;color:#e8e8ea}
+.chk div{display:flex;gap:16px;align-items:center}
+.chk i{font-style:normal;color:var(--g);font-weight:900}
+</style></head><body>
+<div class="thread"></div>
+<i class="dot" style="left:1070px"></i><i class="dot" style="left:2150px"></i><i class="dot" style="left:3230px"></i><i class="dot" style="left:4310px"></i><i class="dot" style="left:5390px"></i>
+
+<!-- 1 -->
+<section class="s" style="left:0">
+  <div class="top"><img src="logo_c.png"><span>01 / 07</span></div>
+  <div class="k">For brand owners</div>
+  <h1 style="margin-top:26px;font-size:100px">Traffic isn't your problem.<br>Your <span class="u">product page</span> is.</h1>
+  <p class="l" style="max-width:480px">6 fixes that turn browsers into buyers.</p>
+  <div class="card mini"><div class="img"></div><b>Signature Bottle</b><div class="btn">Add to cart</div></div>
+  <div class="miss">Left without buying</div>
+  <div style="margin-top:auto"><span class="pill">Swipe →</span></div>
+</section>
+
+<!-- 2 -->
+<section class="s" style="left:1080px">
+  <div class="top"><img src="logo_c.png"><span>02 / 07</span></div>
+  <div class="k">Fix 1 · Images</div>
+  <div class="stat">56%</div>
+  <h2 style="font-size:64px;margin-top:10px">of shoppers explore the images first.</h2>
+  <div class="gal"><div><span>Front</span></div><div><span>Zoom</span></div><div><span>In use</span></div><div><span>Scale</span></div></div>
+  <p class="l" style="font-size:32px">Show every angle, a close-up, the product in use and something for scale.</p>
+  <div class="src">Source: Baymard Institute, product page UX research</div>
+</section>
+
+<!-- 3 -->
+<section class="s" style="left:2160px">
+  <div class="top"><img src="logo_c.png"><span>03 / 07</span></div>
+  <div class="k">Fix 2 · Speed</div>
+  <h2>0.1 seconds faster.<br><span class="gt" style="background:linear-gradient(90deg,var(--ink),var(--g));-webkit-background-clip:text;background-clip:text;color:transparent">+8.4% conversions.</span></h2>
+  <p class="l">When mobile pages loaded 0.1s faster, retail sites saw conversions rise 8.4% in this study.</p>
+  <div class="bars">
+    <div class="brow"><span>Before</span><div class="tr"><i style="width:62%;background:#B9B2A6"></i></div></div>
+    <div class="brow"><span>0.1s faster</span><div class="tr"><i style="width:67.2%;background:linear-gradient(90deg,#8E6A2F,var(--g))"></i></div></div>
+  </div>
+  <p class="l" style="font-size:30px">Compress images, cut unused apps and scripts, lazy-load what's below the fold.</p>
+  <div class="src">Source: Deloitte for Google, "Milliseconds Make Millions" (web.dev). Bars illustrative.</div>
+</section>
+
+<!-- 4 -->
+<section class="s" style="left:3240px">
+  <div class="top"><img src="logo_c.png"><span>04 / 07</span></div>
+  <div class="k">Fix 3 · Above the fold</div>
+  <h2>Answer the 3 big questions <span class="u">before</span> the scroll.</h2>
+  <div class="card pdp">
+    <div class="img"></div>
+    <div><h3>Signature Bottle</h3><div class="pr">$48.00</div>
+      <div class="ln"><em>✓</em>How much? Price + variants</div>
+      <div class="ln"><em>✓</em>When? Delivery date</div>
+      <div class="ln"><em>✓</em>Can I trust it? Rating</div>
+      <div class="atc">Add to cart</div></div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="s" style="left:4320px">
+  <div class="top"><img src="logo_c.png"><span>05 / 07</span></div>
+  <div class="k">Fix 4 · Mobile</div>
+  <h2>One obvious button.<br>Always in reach.</h2>
+  <div class="phones">
+    <div class="ph"><div class="lab" style="color:#B33">Button scrolled away</div><div class="sc"><div class="im"></div><div class="tx"></div><div class="tx s"></div><div class="tx"></div><div class="tx s"></div><div class="tx"></div><div class="tx s"></div></div></div>
+    <div class="ph"><div class="lab" style="color:#1f7a4a">Sticky add to cart</div><div class="sc"><div class="im"></div><div class="tx"></div><div class="tx s"></div><div class="tx"></div><div class="btn">Add to cart · $48</div></div></div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="s" style="left:5400px">
+  <div class="top"><img src="logo_c.png"><span>06 / 07</span></div>
+  <div class="k">Fixes 5 + 6 · Trust</div>
+  <h2>Put the doubts to rest <span class="u">next to</span> the button.</h2>
+  <div class="list">
+    <div><i>5</i>Real reviews with photos, near the price</div>
+    <div><i>6</i>Shipping, returns and payment options in plain words</div>
+    <div><i>+</i>Size guide or "what's in the box"</div>
+    <div><i>+</i>A short FAQ for the questions you keep getting</div>
+  </div>
+  <p class="l" style="font-size:32px">Every question a shopper can't answer on the page is a reason to leave it.</p>
+</section>
+
+<!-- 7 -->
+<section class="s dark" style="left:6480px">
+  <div class="top"><img src="logo_c.png"><span>07 / 07</span></div>
+  <div class="k" style="color:var(--g)">Free audit</div>
+  <h2 class="gt">Want us to check your product page?</h2>
+  <p class="l">We'll review one product page on your store and send you the first fixes we'd make. Shopify, WooCommerce or custom.</p>
+  <div class="chk"><div><i>✓</i>Images and layout</div><div><i>✓</i>Mobile speed</div><div><i>✓</i>Trust and checkout path</div></div>
+  <div style="margin-top:auto;display:flex;align-items:center;gap:28px;flex-wrap:wrap"><span class="pill">DM "PDP" to start</span><span style="font:800 32px I;color:var(--g)">nexaeagle.com</span></div>
+</section>
+</body></html>

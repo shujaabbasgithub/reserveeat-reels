@@ -1,0 +1,192 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:I;src:url(fonts/inter-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:I;src:url(fonts/inter-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:I;src:url(fonts/inter-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:I;src:url(fonts/inter-latin-900-normal.woff2);font-weight:900}
+@font-face{font-family:M;src:url(fonts/jbmono-500.woff2)}
+:root{--g:#C2995B;--g2:#E3C38E;--bg:#0A0A0A;--z:#A1A1AA}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;font-family:I;color:#fff;position:relative}
+.glow{position:absolute;left:50%;top:46%;width:1500px;height:1500px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(194,153,91,.42) 0%,rgba(194,153,91,.12) 35%,transparent 65%);filter:blur(10px)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:90px 90px;mask-image:radial-gradient(circle at 50% 46%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(circle at 50% 46%,#000 20%,transparent 70%)}
+.flash{position:absolute;inset:0;background:var(--g);opacity:0;mix-blend-mode:screen}
+.sc{position:absolute;left:120px;right:120px;top:260px;bottom:440px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0}
+.gt{background:linear-gradient(90deg,#fff 30%,var(--g) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gold{color:var(--g)}
+.big{font:900 138px/1.0 I;letter-spacing:-.03em}
+.mid{font:800 84px/1.05 I;letter-spacing:-.025em}
+.sub{font:500 40px/1.35 I;color:var(--z);margin-top:30px;max-width:800px}
+.src{font:500 24px M;color:#7b7b82;margin-top:34px;letter-spacing:.04em}
+.w{display:inline-block}
+.tag{font:500 26px M;letter-spacing:.2em;color:var(--g);text-transform:uppercase;margin-bottom:34px}
+/* slot */
+.slotrow{font:900 112px/1.08 I;letter-spacing:-.03em}
+.slot{display:inline-block;height:1.15em;overflow:hidden;vertical-align:bottom}
+.slot .st{display:flex;flex-direction:column}
+.slot .st span{height:1.15em;display:block}
+.strike{position:relative;color:#5a5a5f}
+.strike::after{content:"";position:absolute;left:-4%;right:-4%;top:52%;height:12px;background:#E5484D;transform:scaleX(var(--s,0));transform-origin:left}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,150px);gap:18px;margin-top:56px}
+.gal i{height:150px;border-radius:18px;background:#1b1b1d;border:2px solid #2a2a2e;display:block;position:relative;overflow:hidden}
+.gal i::after{content:"";position:absolute;inset:26%;border-radius:50%;background:linear-gradient(135deg,#3a3a3f,#202023)}
+.gal i.on{border-color:var(--g);box-shadow:0 0 40px rgba(194,153,91,.5)}
+/* phone */
+.phone{width:440px;height:900px;border-radius:60px;background:#151517;border:3px solid #2c2c30;padding:18px;box-shadow:0 60px 120px rgba(0,0,0,.6),0 0 80px rgba(194,153,91,.15)}
+.ps{width:100%;height:100%;border-radius:44px;background:#F6F3EE;overflow:hidden;position:relative;color:#111}
+.hero{height:420px;background:linear-gradient(140deg,#E9E2D6,#D8CCB8);position:relative;overflow:hidden}
+.prod{position:absolute;left:50%;top:52%;width:200px;height:200px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 35% 30%,#fff,#C2995B 60%,#7d5f30)}
+.lens{position:absolute;width:150px;height:150px;border-radius:50%;border:4px solid #111;left:230px;top:80px;background:radial-gradient(circle at 40% 35%,rgba(255,255,255,.7),rgba(194,153,91,.4));opacity:0}
+.thumbs{display:flex;gap:10px;padding:14px 18px}
+.thumbs i{flex:1;height:64px;border-radius:12px;background:#E3DACB;border:2px solid transparent}
+.thumbs i.on{border-color:#111}
+.pinfo{padding:6px 22px}
+.pinfo b{display:block;font:800 30px I}
+.row{display:flex;align-items:center;gap:10px;font:700 21px I;margin-top:12px;opacity:0}
+.row .ck{width:30px;height:30px;border-radius:50%;background:#1f7a4a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px}
+.price{font:900 34px I;margin-top:10px;opacity:0}
+.atc{position:absolute;left:22px;right:22px;bottom:26px;height:74px;border-radius:18px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font:800 26px I;opacity:0}
+/* speed */
+.ring{width:330px;height:330px;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .v{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:900 110px I;letter-spacing:-.04em}
+.bar{width:760px;height:36px;border-radius:18px;background:#1c1c1f;margin-top:46px;overflow:hidden}
+.bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#8a6a38,var(--g),var(--g2));transform-origin:left;transform:scaleX(0)}
+.pct{font:900 150px/1 I;letter-spacing:-.04em;margin-top:40px}
+/* end card */
+.pend{position:absolute;left:540px;top:180px;width:0;height:0}
+.arm{position:absolute;left:-2px;top:0;width:4px;height:600px;background:#e9e9ea;transform-origin:top center}
+.bob{position:absolute;left:50%;bottom:-70px;width:140px;height:140px;margin-left:-70px;border-radius:34px;background:#111;border:3px solid var(--g);display:flex;align-items:center;justify-content:center;box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 60px rgba(194,153,91,.35)}
+.bob img{width:84px}
+.endtxt{position:relative;font:900 116px/1.0 I;letter-spacing:-.03em;height:240px;width:840px}
+.endtxt div{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.foot{position:absolute;left:0;right:0;top:1330px;text-align:center;opacity:0}
+.foot .s{font:600 26px M;letter-spacing:.22em;color:var(--z)}
+.foot .u{font:800 46px I;color:var(--g);margin-top:14px}
+.logo{position:absolute;left:50%;top:300px;transform:translateX(-50%);width:330px;opacity:0}
+</style></head><body>
+<div class="glow" data-bleed></div><div class="grid" data-bleed></div><div class="flash" data-bleed></div>
+
+<!-- A hook -->
+<section class="sc" id="sA" style="opacity:1">
+  <div class="big"><span class="w">Your</span> <span class="w">ads</span><br><span class="w">aren't</span> <span class="w">the</span><br><span class="w gt">problem.</span></div>
+</section>
+
+<!-- B slot -->
+<section class="sc" id="sB">
+  <div class="slotrow">Your<br><span class="slot"><span class="st" id="st"><span class="strike" id="sk">ads</span><span>SEO</span><span>pricing</span><span class="gt">product page</span></span></span><br>is.</div>
+</section>
+
+<!-- C 56% -->
+<section class="sc" id="sC">
+  <div class="tag">Research</div>
+  <div class="pct gt" id="n56" style="margin:0">0%</div>
+  <div class="sub" style="color:#fff;font-weight:700;font-size:48px">of shoppers check the<br>images first</div>
+  <div class="gal"><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="src">Source: Baymard Institute</div>
+</section>
+
+<!-- D phone gallery -->
+<section class="sc" id="sD">
+  <div class="phone ui"><div class="ps">
+    <div class="hero"><div class="prod"></div><div class="lens" id="lens"></div></div>
+    <div class="thumbs"><i class="on"></i><i></i><i></i><i></i></div>
+    <div class="pinfo"><b>Every angle.</b><span style="font:600 22px I;color:#666">Zoom, in-use and close-up shots</span></div>
+  </div></div>
+</section>
+
+<!-- E speed -->
+<section class="sc" id="sE">
+  <div class="tag">Mobile speed</div>
+  <div class="ring ui"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#1f1f22" stroke-width="7"/><circle id="arc" cx="50" cy="50" r="44" fill="none" stroke="#C2995B" stroke-width="7" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="276.5"/></svg><div class="v gt">0.1s</div></div>
+  <div class="sub" style="color:#fff;font-weight:700;font-size:46px;margin-top:40px">faster on mobile lifted<br>retail conversions</div>
+  <div class="pct gold" id="n84" style="font-size:130px;margin-top:20px">+0.0%</div>
+  <div class="bar ui"><i id="bar"></i></div>
+  <div class="src">Source: Deloitte for Google, "Milliseconds Make Millions"</div>
+</section>
+
+<!-- F PDP assemble -->
+<section class="sc" id="sF">
+  <div class="phone ui"><div class="ps">
+    <div class="hero" style="height:340px"><div class="prod" style="width:170px;height:170px"></div></div>
+    <div class="pinfo"><b>Signature Bottle</b>
+      <div class="price" id="pr">$48.00</div>
+      <div class="row" id="r1"><span class="ck">✓</span>Free delivery by Friday</div>
+      <div class="row" id="r2"><span class="ck">✓</span>★★★★★ Reviews right here</div>
+      <div class="row" id="r3"><span class="ck">✓</span>30-day easy returns</div>
+    </div>
+    <div class="atc" id="atc">Add to cart</div>
+  </div></div>
+</section>
+
+<!-- G -->
+<section class="sc" id="sG">
+  <div class="big"><span class="w">Fix</span> <span class="w">the</span> <span class="w gt">page.</span><br><span class="w" style="color:#6f6f75">Then</span> <span class="w" style="color:#6f6f75">buy</span> <span class="w" style="color:#6f6f75">traffic.</span></div>
+</section>
+
+<!-- H end card -->
+<img class="logo" id="logo" src="logo_c.png">
+<section class="sc" id="sH">
+  <div class="endtxt"><div id="e1" class="gt">Free PDP<br>audit?</div><div id="e2" class="gold" style="opacity:0">Let's<br>talk.</div></div>
+</section>
+<div class="pend" id="pend" style="opacity:0"><div class="arm" id="arm"><div class="bob ui"><img src="mark.png"></div></div></div>
+<div class="foot" id="foot"><div class="s">SHOPIFY · CRO · WEB DEVELOPMENT</div><div class="u">nexaeagle.com</div></div>
+
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<script>
+const tl=gsap.timeline({paused:true});
+const show=(id,t)=>tl.fromTo(id,{opacity:0},{opacity:1,duration:.12,immediateRender:false},t);
+const hide=(id,t)=>tl.to(id,{opacity:0,duration:.12},t);
+const flash=t=>tl.fromTo('.flash',{opacity:0},{opacity:.35,duration:.05,immediateRender:false},t).to('.flash',{opacity:0,duration:.25},t+.05);
+// glow breathing
+tl.fromTo('.glow',{scale:1},{scale:1.12,duration:2,yoyo:true,repeat:13,ease:'sine.inOut'},0);
+// A: words already visible at 0, punch in staggered scale
+tl.fromTo('#sA .w',{y:-26,opacity:1},{y:0,duration:.3,stagger:.12,ease:'back.out(3)'},0);tl.fromTo('#sA .gt',{scale:1},{scale:1.08,duration:.25,yoyo:true,repeat:1},0.9);
+hide('#sA',1.95); flash(1.97);
+// B slot
+show('#sB',2.0);
+tl.fromTo('#sB',{scale:1.08},{scale:1,duration:.4,immediateRender:false},2.0);
+tl.fromTo('#sk',{'--s':0},{'--s':1,duration:.25,immediateRender:false},2.15);
+tl.fromTo('#st',{yPercent:0},{yPercent:-25,duration:.18,ease:'power4.inOut',immediateRender:false},2.45).to('#st',{yPercent:-50,duration:.18,ease:'power4.inOut'},2.75).to('#st',{yPercent:-75,duration:.22,ease:'back.out(2)'},3.05);
+hide('#sB',3.55); flash(3.57);
+// C 56
+show('#sC',3.6);
+tl.fromTo('#sC .pct',{scale:.6},{scale:1,duration:.5,ease:'back.out(1.8)',immediateRender:false},3.6);
+const n={v:0};tl.to(n,{v:56,duration:1.2,ease:'power2.out',onUpdate:()=>{document.getElementById('n56').textContent=Math.round(n.v)+'%'}},3.65);
+tl.fromTo('#sC .gal i',{y:60,opacity:0},{y:0,opacity:1,stagger:.1,duration:.35,immediateRender:false},4.3);
+hide('#sC',6.85);
+// D phone
+show('#sD',6.9);
+tl.fromTo('#sD .phone',{y:120,rotateX:18,scale:.9},{y:0,rotateX:0,scale:1,duration:.6,ease:'power3.out',immediateRender:false},6.9);
+tl.fromTo('#lens',{opacity:0,scale:.5},{opacity:1,scale:1,duration:.3,immediateRender:false},7.5);
+tl.to('#lens',{x:-150,y:120,duration:1,ease:'sine.inOut'},7.8);
+tl.to('#sD .prod',{scale:1.25,duration:1,ease:'sine.inOut'},7.8);
+hide('#sD',9.05); flash(9.07);
+// E speed
+show('#sE',9.1);
+tl.fromTo('#arc',{attr:{'stroke-dashoffset':276.5}},{attr:{'stroke-dashoffset':0},duration:1.2,ease:'power2.inOut',immediateRender:false},9.2);
+tl.fromTo('#sE .ring',{scale:.7,rotate:-20},{scale:1,rotate:0,duration:.6,ease:'back.out(1.6)',immediateRender:false},9.1);
+const m={v:0};tl.to(m,{v:8.4,duration:1.6,ease:'power2.out',onUpdate:()=>{document.getElementById('n84').textContent='+'+m.v.toFixed(1)+'%'}},12.2);
+tl.fromTo('#bar',{scaleX:0},{scaleX:.84,duration:1.6,ease:'power2.out',immediateRender:false},12.2);
+tl.fromTo('#sE .sub,#sE .pct,#sE .bar,#sE .src',{opacity:0,y:30},{opacity:1,y:0,stagger:.25,duration:.3,immediateRender:false},10.6);
+hide('#sE',15.9); flash(15.92);
+// F
+show('#sF',16.0);
+tl.fromTo('#sF .phone',{scale:.85,y:80},{scale:1,y:0,duration:.5,ease:'power3.out',immediateRender:false},16.0);
+['#pr','#r1','#r2','#r3'].forEach((s,i)=>tl.fromTo(s,{opacity:0,x:-40},{opacity:1,x:0,duration:.3,immediateRender:false},16.5+i*.55));
+tl.fromTo('#atc',{opacity:0,scale:.6},{opacity:1,scale:1,duration:.4,ease:'back.out(2.5)',immediateRender:false},18.8);
+tl.to('#atc',{scale:1.06,duration:.25,yoyo:true,repeat:3},19.2);
+hide('#sF',20.0); flash(20.02);
+// G
+show('#sG',20.1);
+tl.fromTo('#sG .w',{y:80,opacity:0},{y:0,opacity:1,stagger:.12,duration:.3,ease:'power3.out',immediateRender:false},20.1);
+hide('#sG',22.6); flash(22.62);
+// H pendulum end card (loops back toward the hook)
+show('#sH',22.7);show('#pend',22.7);show('#logo',22.7);show('#foot',23.0);
+tl.fromTo('#arm',{rotate:32},{rotate:-32,duration:1.1,ease:'sine.inOut',yoyo:true,repeat:4,immediateRender:false},22.7);
+// text swaps as the bob passes centre
+[23.25,24.35,25.45,26.55].forEach((t,i)=>{tl.set('#e1',{opacity:i%2?1:0},t);tl.set('#e2',{opacity:i%2?0:1},t);});
+tl.to({},{duration:.01},28.0);
+window.seek=t=>{tl.seek(t,false)};
+seek(0);
+</script></body></html>
