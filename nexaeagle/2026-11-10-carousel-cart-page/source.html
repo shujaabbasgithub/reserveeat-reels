@@ -1,0 +1,180 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:I;src:url(fonts/inter-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:I;src:url(fonts/inter-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:I;src:url(fonts/inter-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:I;src:url(fonts/inter-latin-900-normal.woff2);font-weight:900}
+@font-face{font-family:M;src:url(fonts/jbmono-500.woff2)}
+:root{--bg:#F4F1EC;--ink:#0A0A0A;--g:#C2995B;--gd:#8E6A2F;--mut:#55555B;--line:#E2DCD1}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:7560px;height:1350px;background:var(--bg);font-family:I;color:var(--ink);position:relative;overflow:hidden}
+body::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(10,10,10,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(10,10,10,.045) 1px,transparent 1px);background-size:60px 60px}
+.s{position:absolute;top:0;width:1080px;height:1350px;padding:170px 96px 120px;display:flex;flex-direction:column}
+.top{position:absolute;top:70px;left:96px;right:96px;display:flex;justify-content:space-between;align-items:center}
+.top img{height:38px}
+.top span{font:500 22px M;letter-spacing:.12em;color:var(--mut)}
+.k{font:500 24px M;letter-spacing:.2em;color:var(--gd);text-transform:uppercase}
+h1,h2{font-weight:900;letter-spacing:-.035em;line-height:.98}
+h1{font-size:124px}
+h2{font-size:86px;margin-top:22px}
+.u{position:relative;white-space:nowrap}
+.u::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:16px;background:var(--g);opacity:.45;z-index:-1}
+p.l{font:500 36px/1.45 I;color:var(--mut);margin-top:30px;max-width:860px}
+.src{font:500 21px M;color:#8a8a8f;margin-top:auto;padding-top:30px}
+.pill{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:#fff;border-radius:999px;padding:24px 38px;font:800 32px I}
+.thread{position:absolute;left:0;top:1235px;width:7560px;height:4px;background:repeating-linear-gradient(90deg,var(--g) 0 18px,transparent 18px 30px);opacity:.8}
+.dot{position:absolute;top:1227px;width:20px;height:20px;border-radius:50%;background:var(--g)}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:30px;box-shadow:0 30px 60px -36px rgba(10,10,10,.35)}
+/* s1 */
+.mini{position:absolute;right:96px;bottom:200px;width:380px;padding:20px}
+.mini .img{height:210px;border-radius:20px;background:linear-gradient(140deg,#E9E2D6,#D2C3A9);position:relative}
+.mini .img::after{content:"";position:absolute;left:50%;top:50%;width:130px;height:130px;margin:-65px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--g) 60%,#7d5f30)}
+.mini b{display:block;font:800 28px I;margin-top:16px}
+.mini .btn{margin-top:14px;height:58px;border-radius:14px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font:800 22px I}
+.miss{position:absolute;right:70px;bottom:520px;background:#E5484D;color:#fff;font:800 22px I;padding:12px 20px;border-radius:999px;transform:rotate(-6deg)}
+/* big stat */
+.stat{font:900 300px/0.9 I;letter-spacing:-.06em;margin-top:40px;background:linear-gradient(90deg,var(--ink) 40%,var(--g));-webkit-background-clip:text;background-clip:text;color:transparent}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.gal div{aspect-ratio:1;border-radius:20px;background:linear-gradient(140deg,#EAE3D7,#D5C7AE);position:relative;overflow:hidden}
+.gal div span{position:absolute;left:12px;bottom:10px;font:700 18px I;color:#3b3b3f}
+.gal div::after{content:"";position:absolute;left:50%;top:44%;width:44%;height:44%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--g) 60%,#7d5f30)}
+.gal div:nth-child(2)::after{width:80%;height:80%}
+.gal div:nth-child(3)::after{border-radius:30%;transform:translate(-50%,-50%) rotate(20deg)}
+.list{margin-top:40px;display:grid;gap:18px}
+.list div{display:flex;gap:18px;align-items:center;font:700 32px I}
+.list div i{flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--g);display:flex;align-items:center;justify-content:center;font:800 22px I;font-style:normal}
+/* speed */
+.bars{margin-top:50px;display:grid;gap:26px}
+.brow{display:grid;grid-template-columns:200px 1fr;align-items:center;gap:20px;font:700 28px I}
+.brow .tr{height:56px;border-radius:14px;background:#E7E1D6;overflow:hidden}
+.brow .tr i{display:block;height:100%;border-radius:14px}
+/* pdp mock */
+.pdp{display:grid;grid-template-columns:420px 1fr;gap:34px;margin-top:46px;padding:30px}
+.pdp .img{border-radius:22px;background:linear-gradient(140deg,#E9E2D6,#D2C3A9);height:440px;position:relative}
+.pdp .img::after{content:"";position:absolute;left:50%;top:50%;width:200px;height:200px;margin:-100px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--g) 60%,#7d5f30)}
+.pdp h3{font:800 34px I}
+.pr{font:900 46px I;margin-top:10px}
+.ln{margin-top:16px;font:600 22px I;color:#2f2f33;display:flex;gap:10px;align-items:center}
+.ln em{font-style:normal;width:28px;height:28px;border-radius:50%;background:#1f7a4a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
+.atc{margin-top:22px;height:70px;border-radius:16px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font:800 25px I;position:relative}
+.callout{position:absolute;font:800 22px I;color:var(--gd);display:flex;align-items:center;gap:10px}
+/* sticky mobile */
+.phones{display:flex;gap:40px;margin-top:110px;justify-content:center}
+.ph{width:330px;height:640px;border-radius:46px;background:#111;padding:12px;position:relative}
+.ph .sc{width:100%;height:100%;border-radius:36px;background:#fff;overflow:hidden;position:relative}
+.ph .sc .im{height:300px;background:linear-gradient(140deg,#E9E2D6,#D2C3A9)}
+.ph .sc .tx{margin:16px;height:16px;border-radius:8px;background:#E6E0D5}
+.ph .sc .tx.s{width:60%}
+.ph .sc .btn{position:absolute;left:14px;right:14px;bottom:16px;height:60px;border-radius:14px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font:800 20px I}
+.ph .lab{position:absolute;top:-56px;left:0;right:0;text-align:center;font:800 24px I}
+/* dark CTA */
+.dark{background:#0A0A0A;color:#fff}
+.dark::before{content:"";position:absolute;left:50%;top:45%;width:1200px;height:1200px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(194,153,91,.35),transparent 62%)}
+.dark>*{position:relative}.dark>.top{position:absolute}
+.dark .top span{color:#8f8f95}
+.dark h2{font-size:104px}
+.gt{background:linear-gradient(90deg,#fff 30%,var(--g));-webkit-background-clip:text;background-clip:text;color:transparent}
+.dark p.l{color:#B9B9BE}
+.dark .pill{background:var(--g);color:#0A0A0A;font-size:36px;padding:28px 46px}
+.chk{margin-top:44px;display:grid;gap:16px;font:700 30px I;color:#e8e8ea}
+.chk div{display:flex;gap:16px;align-items:center}
+.chk i{font-style:normal;color:var(--g);font-weight:900}
+</style><style>
+.cart{margin-top:50px;padding:30px}
+.cr{display:flex;justify-content:space-between;align-items:center;font:700 28px I;padding:14px 0;border-bottom:1.5px solid var(--line)}
+.cr:last-child{border:0}
+.cr .th{width:70px;height:70px;border-radius:16px;background:linear-gradient(140deg,#E9E2D6,#D2C3A9);margin-right:18px}
+.cr small{display:block;font:500 22px I;color:var(--mut)}
+.red{color:#C9373C}.grn{color:#1f7a4a}
+.bar{height:26px;border-radius:13px;background:#E7E1D6;overflow:hidden;margin-top:18px}
+.bar i{display:block;height:100%;width:78%;border-radius:13px;background:linear-gradient(90deg,#8E6A2F,var(--g))}
+.xp{display:grid;gap:14px;margin-top:20px}
+.xp div{height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font:800 26px I;color:#fff}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:50px}
+.vs .card{padding:26px}
+.vs h4{font:800 24px I;margin-bottom:12px}
+.tag{display:inline-block;font:800 20px I;padding:8px 16px;border-radius:999px;margin-bottom:14px}
+</style></head><body>
+<div class="thread"></div>
+<i class="dot" style="left:1070px"></i><i class="dot" style="left:2150px"></i><i class="dot" style="left:3230px"></i><i class="dot" style="left:4310px"></i><i class="dot" style="left:5390px"></i>
+
+<section class="s" style="left:0">
+  <div class="top"><img src="logo_c.png"><span>01 / 07</span></div>
+  <div class="k">For brand owners</div>
+  <h1 style="margin-top:26px;font-size:112px">Your <span class="u">cart page</span> is where sales quietly die.</h1>
+  <p class="l" style="max-width:520px">6 fixes before the Q4 rush.</p>
+  <div class="card mini" style="bottom:210px"><div class="cr" style="padding:6px 0"><span>Cart (2)</span><span>£96.00</span></div><div class="btn" style="background:#ddd;color:#888">Checkout</div></div>
+  <div class="miss" style="bottom:560px">Cart abandoned</div>
+  <div style="margin-top:auto"><span class="pill">Swipe →</span></div>
+</section>
+
+<section class="s" style="left:1080px">
+  <div class="top"><img src="logo_c.png"><span>02 / 07</span></div>
+  <div class="k">Fix 1 · No surprises</div>
+  <h2>Show the <span class="u">real total</span> early.</h2>
+  <div class="vs">
+    <div class="card"><span class="tag" style="background:#FBE3E4;color:#C9373C">Before</span>
+      <div class="cr" style="font-size:24px"><span>Subtotal</span><span>£96</span></div>
+      <div class="cr" style="font-size:24px"><span>Shipping</span><span class="red">???</span></div>
+      <div class="cr" style="font-size:24px"><span>Tax</span><span class="red">???</span></div></div>
+    <div class="card"><span class="tag" style="background:#DDF1E5;color:#1f7a4a">After</span>
+      <div class="cr" style="font-size:24px"><span>Subtotal</span><span>£96</span></div>
+      <div class="cr" style="font-size:24px"><span>Delivery</span><span>£4.95</span></div>
+      <div class="cr" style="font-size:24px"><span>Total</span><b>£100.95</b></div></div>
+  </div>
+  <p class="l" style="font-size:34px">Unexpected costs are a top reason shoppers leave. Estimate shipping and duties on the cart page, not three steps later.</p>
+</section>
+
+<section class="s" style="left:2160px">
+  <div class="top"><img src="logo_c.png"><span>03 / 07</span></div>
+  <div class="k">Fix 2 · Free shipping bar</div>
+  <h2>Give shoppers a <span class="u">reason</span> to add one more.</h2>
+  <div class="card cart">
+    <div class="cr"><span style="display:flex;align-items:center"><i class="th"></i><span>Signature Bottle<small>Qty 1</small></span></span><span>£48</span></div>
+    <div class="cr"><span style="display:flex;align-items:center"><i class="th"></i><span>Travel Case<small>Qty 1</small></span></span><span>£48</span></div>
+    <div style="font:800 28px I;margin-top:22px">You're <span style="color:var(--gd)">£14</span> away from free delivery</div>
+    <div class="bar"><i></i></div>
+  </div>
+  <p class="l" style="font-size:32px">Set the threshold just above your average order and suggest one item that closes the gap.</p>
+</section>
+
+<section class="s" style="left:3240px">
+  <div class="top"><img src="logo_c.png"><span>04 / 07</span></div>
+  <div class="k">Fix 3 · Express payment</div>
+  <h2>Let returning buyers <span class="u">skip</span> the forms.</h2>
+  <div class="card cart" style="margin-top:44px">
+    <div class="xp"><div style="background:#000">Apple Pay</div><div style="background:#5A31F4">Shop Pay</div><div style="background:#fff;color:#111;border:2px solid #ddd">Google Pay</div></div>
+    <div style="text-align:center;font:600 22px M;color:var(--mut);margin:22px 0">OR</div>
+    <div class="atc" style="margin-top:0">Checkout</div>
+  </div>
+  <p class="l" style="font-size:32px">Wallet buttons above the standard checkout button. Fewer fields means fewer exits, especially on mobile.</p>
+</section>
+
+<section class="s" style="left:4320px">
+  <div class="top"><img src="logo_c.png"><span>05 / 07</span></div>
+  <div class="k">Fix 4 · Edit in place</div>
+  <h2>Changing a size shouldn't mean <span class="u">starting over</span>.</h2>
+  <div class="phones" style="margin-top:130px"><div class="ph"><div class="lab" style="color:#B33">Sent back to shop</div><div class="sc" style="padding-top:60px"><div style="margin:14px 14px 0;padding:12px;border:1.5px solid #E2DCD1;border-radius:14px;display:flex;gap:12px;align-items:center"><i style="width:56px;height:56px;border-radius:12px;background:linear-gradient(140deg,#E9E2D6,#D2C3A9)"></i><div style="font:700 17px I">Signature Bottle<div style="font:500 15px I;color:#777;margin-top:4px">Size: 50ml</div></div></div><div style="margin:30px 14px;font:700 17px I;color:#B33;text-align:center">Wrong size? Go back, find the product, start again</div><div class="btn" style="background:#bbb">Back to shop</div></div></div><div class="ph"><div class="lab" style="color:#1f7a4a">Edit right in cart</div><div class="sc" style="padding-top:60px"><div style="margin:14px 14px 0;padding:12px;border:1.5px solid #E2DCD1;border-radius:14px;display:flex;gap:12px;align-items:center"><i style="width:56px;height:56px;border-radius:12px;background:linear-gradient(140deg,#E9E2D6,#D2C3A9)"></i><div style="font:700 17px I">Signature Bottle<div style="font:500 15px I;color:#777;margin-top:4px">Size: <b style="background:#F0E6D3;padding:2px 8px;border-radius:8px">100ml ▾</b></div></div></div><div style="margin:14px 14px 0;padding:12px;border:1.5px solid #E2DCD1;border-radius:14px;display:flex;gap:12px;align-items:center"><i style="width:56px;height:56px;border-radius:12px;background:linear-gradient(140deg,#E9E2D6,#D2C3A9)"></i><div style="font:700 17px I">Travel Case<div style="font:500 15px I;color:#777;margin-top:4px">Qty − 1 +</div></div></div><div class="btn">Checkout · £96</div></div></div></div>
+  </section>
+
+<section class="s" style="left:5400px">
+  <div class="top"><img src="logo_c.png"><span>06 / 07</span></div>
+  <div class="k">Fixes 5 + 6 · Reassure</div>
+  <h2>Answer the last doubts <span class="u">right here</span>.</h2>
+  <div class="list">
+    <div><i>5</i>Delivery date, not "3 to 7 working days"</div>
+    <div><i>6</i>Returns policy in one plain line</div>
+    <div><i>+</i>Payment options and security note</div>
+    <div><i>+</i>Discount code field that doesn't tempt people to leave and search for codes</div>
+  </div>
+  <p class="l" style="font-size:32px">The cart is the last place a shopper can change their mind. Make staying the easy choice.</p>
+</section>
+
+<section class="s dark" style="left:6480px">
+  <div class="top"><img src="logo_c.png"><span>07 / 07</span></div>
+  <div class="k" style="color:var(--g)">Free audit</div>
+  <h2 class="gt">Want us to check your cart page?</h2>
+  <p class="l">We'll review your cart and send the first fixes we'd make. Shopify, WooCommerce or custom.</p>
+  <div class="chk"><div><i>✓</i>Costs and shipping clarity</div><div><i>✓</i>Mobile cart experience</div><div><i>✓</i>Trust and checkout path</div></div>
+  <div style="margin-top:auto;display:flex;align-items:center;gap:28px;flex-wrap:wrap"><span class="pill">DM "CART" to start</span><span style="font:800 32px I;color:var(--g)">nexaeagle.com</span></div>
+</section>
+</body></html>
